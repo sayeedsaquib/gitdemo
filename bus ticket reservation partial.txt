@@ -1,0 +1,83 @@
+partial bus reservation
+#include <iostream>
+ #include <cctype>
+ #include <string.h>
+ using namespace std;
+
+ struct Bus
+ {
+ int busNo;
+ string busType;
+ string busName;
+ string source;
+ string destination;
+ float departureTime;
+ float arrivalTime;
+ int noOfSeats;
+ double ticketCost;
+
+ void displayBusDetails() // displayBusDetails() method is provided as a part of code skeleton 18
+ {
+ cout<<busNo<<"\t"<<busName<<"\t"<<busType<<"\t"<<source<<"\t"<<destination<<"\t"<< departureTime <<"\t"<<arrivalTime<<"\t"<<noOfSeats<<"\t"<<ticketCost<<endl;
+  }
+ void checkAvailability(string source, string destination)  {
+    
+    
+  }
+ bool bookATicket(string from,string to,string btype, int no) {
+return false;
+
+  }
+ double calculateTotalFare(int noOfPassengers)  {
+ return noOfSeats=noOfSeats - noOfPassengers; }
+
+ } busObj[10]={
+
+ {1122,"ACSeater","SRS","Coimbatore","Chennai",9.15f,5.35f,30,450.00},
+ {1023,"ACSeater","PNR","Coimbatore","Bangalore",8.15f,5.35f,20,550.00},
+ {1123,"NonACSeater","SRS","Coimbatore","Pune",10.15f,7.35f,30,300.00},
+ {1234,"NonACSeater","PSS","Coimbatore","Hyderabad",7.15f,4.35f,18,500.00},
+ {1128,"ACSleeper","ORS","Chennai","Coimbatore",9.15f,5.35f,30,450.00},
+ {1063,"ACSleeper","KPY","Bangalore","Coimbatore",8.15f,5.35f,20,550.00}, {7123,"NonACSleeper","MMC","Pune","Coimbatore",10.15f,7.55f,30,300.00},
+ {1784,"NonACSleeper","PSS","Hyderabad","Coimbatore",7.15f,4.35f,18,500.00},
+{7122,"NonACSeater","PSS","Pune","Chennai",7.15f,4.35f,18,500.00},
+ {1100,"ACSleeper","ORS","Chennai","Pune",9.15f,5.45f,30,450.00}
+};
+
+Bus selectedBusObj; //Assign the selected bus values to this object 55
+ int main()
+{
+ int a;
+string s,d; 
+struct Bus b1;
+cout<< "1. Check availability";
+ cout<< "\n2. Book Ticket";
+ 
+ cout<< "\n3. Exit"<<endl;
+ cout<<"Enter your Choice :"<<endl;
+ cin>>a;
+ switch(a)
+{
+case 1 :
+ cout<<"\nEnter the Source:"<<endl;
+cin>>s;
+cout<<"\nEnter the Destination:"<<endl;
+cin>>d;
+for(int i=0;i<10;i++)
+    {
+      if(busObj[i].source==s &&busObj[i].destination==d)  
+ cout<<busObj[i].busNo
+ <<"\t"
+ <<busObj[i].busName <<"\t"
+ <<"\t"<<busObj[i].busType
+ <<"\t"<<busObj[i].source<<"\t"<<busObj[i].destination<<"\t"<<busObj[i].departureTime <<"\t"<<busObj[i].arrivalTime<<"\t"<<busObj[i].noOfSeats<<"\t"<<busObj[i].ticketCost<<endl;
+    }
+break;
+case 2 :
+
+case 3 :
+exit(0);
+}
+return 0; 
+cin>>a;
+}
