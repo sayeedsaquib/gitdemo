@@ -1,0 +1,148 @@
+Virat:
+#include <iostream> 
+#include <string.h> 
+#include <string> 
+using namespace std; 
+ 
+struct Bus 
+{ 
+  int busNo; 
+  string busType; 
+  string busName; 
+  string source; 
+  string destination; 
+  float departureTime; 
+  float arrivalTime; 
+  int noOfSeats; 
+  double ticketCost; 
+ 
+  void displayBusDetails() // displayBusDetails() method is provided as a part of code skeleton  
+  { 
+      cout<<busNo<<"\t"<<busName<<"\t"<<busType<<"\t"<<source<<"\t"<<destination<<"\t"<< departureTime <<"\t"<<arrivalTime<<"\t"<<noOfSeats<<"\t"<<ticketCost<<endl; 
+  } 
+   
+  //Fill the code here  
+  void checkAvailability(string source, string destination); 
+  /*{ 
+      for(int i=0;i<10;i++){ 
+         if(source==busObj[i].source && destination==busObj[i].destination) { 
+             cout<<busObj[i].displayBusDetails(); 
+         } 
+      } 
+       
+  }*/ 
+  bool bookATicket(string from,string to,string btype,int no); 
+       
+   
+  double calculateTotalFare(int noOfPassengers){ 
+      return noOfPassengers*ticketCost; 
+  } 
+       
+   
+  
+} busObj[10]={ {1122,"ACSeater","SRS","Coimbatore","Chennai",9.15f,5.35f,30,450.00}, 
+                {1023,"ACSeater","PNR","Coimbatore","Bangalore",8.15f,5.35f,20,550.00}, 
+               {1123,"NonACSeater","SRS","Coimbatore","Pune",10.15f,7.35f,30,300.00}, 
+                {1234,"NonACSeater","PSS","Coimbatore","Hyderabad",7.15f,4.35f,18,500.00}, 
+                {1128,"ACSleeper","ORS","Chennai","Coimbatore",9.15f,5.35f,30,450.00}, 
+                {1063,"ACSleeper","KPY","Bangalore","Coimbatore",8.15f,5.35f,20,550.00}, 
+                {7123,"NonACSleeper","MMC","Pune","Coimbatore",10.15f,7.55f,30,300.00}, 
+                {1784,"NonACSleeper","PSS","Hyderabad","Coimbatore",7.15f,4.35f,18,500.00}, 
+                {7122,"NonACSeater","PSS","Pune","Chennai",7.15f,4.35f,18,500.00}, 
+                {1100,"ACSleeper","ORS","Chennai","Pune",9.15f,5.45f,30,450.00}};; 
+ 
+//Initialize the array using the below values 
+Bus bus[] ={ {1122,"ACSeater","SRS","Coimbatore","Chennai",9.15f,5.35f,30,450.00}, 
+                {1023,"ACSeater","PNR","Coimbatore","Bangalore",8.15f,5.35f,20,550.00}, 
+               {1123,"NonACSeater","SRS","Coimbatore","Pune",10.15f,7.35f,30,300.00}, 
+                {1234,"NonACSeater","PSS","Coimbatore","Hyderabad",7.15f,4.35f,18,500.00}, 
+                {1128,"ACSleeper","ORS","Chennai","Coimbatore",9.15f,5.35f,30,450.00}, 
+                {1063,"ACSleeper","KPY","Bangalore","Coimbatore",8.15f,5.35f,20,550.00}, 
+                {7123,"NonACSleeper","MMC","Pune","Coimbatore",10.15f,7.55f,30,300.00}, 
+                {1784,"NonACSleeper","PSS","Hyderabad","Coimbatore",7.15f,4.35f,18,500.00}, 
+                {7122,"NonACSeater","PSS","Pune","Chennai",7.15f,4.35f,18,500.00}, 
+                {1100,"ACSleeper","ORS","Chennai","Pune",9.15f,5.45f,30,450.00}}; 
+ 
+//busObj[]=bus[]; 
+ 
+Bus selectedBusObj=bus[10];  
+//Assign the selected bus values to this object 
+ 
+void Bus :: checkAvailability(string source, string destination){ 
+      for(int i=0;i<10;i++){ 
+         if(source==bus[i].source && destination==bus[i].destination) { 
+             cout<<bus[i].busNo<<"\t"<<bus[i].busName<<"\t"<<bus[i].busType<<"\t"<<bus[i].source<<"\t"<<bus[i].destination<<"\t"<<bus[i].departureTime <<"\t"<<bus[i].arrivalTime<<"\t"<<bus[i].noOfSeats<<"\t"<<bus[i].ticketCost<<endl; 
+         } 
+      } 
+       
+  } 
+  bool Bus :: bookATicket(string from,string to,string btype,int no){ 
+      for(int i=0;i<10;i++){ 
+         if(from==busObj[i].source && to==busObj[i].destination && btype==busObj[i].busType && no <= busObj[i].noOfSeats) { 
+             return true; 
+           //  calculateTotalFare(no); 
+         } 
+      } 
+      return false; 
+  } 
+ 
+int main() 
+{ 
+    //Fill the code here  
+    busObj[2].displayBusDetails();
+
+int a=1; 
+    while(a){ 
+        int x; 
+        string s1=""; 
+        string s2=""; 
+        string from,to,date,name,type; 
+        int num; 
+    cout<<"1. Check availiablity"<<endl; 
+    cout<<"2. Book Ticket"<<endl; 
+    cout<<"3. Exit"<<endl; 
+    cout<<"Enter your choice:"<<endl; 
+    cin>>x; 
+    switch(x){ 
+        case 1: 
+                 
+                cout<<"Enter the Source:"<<endl; 
+                cin>>s1; 
+                cout<<"Enter the Destination:"<<endl; 
+                cin>>s2; 
+                selectedBusObj.checkAvailability(s1,s2); 
+              // cout<<bus[1].busNo; 
+               break;  
+        case 2: 
+                cout<<"From:"<<endl; 
+                cin>>from; 
+                cout<<"To:"<<endl; 
+                cin>>to; 
+                cout<<"Date of Journey:"<<endl; 
+                cin>>date; 
+                cout<<"Passenger Name:"<<endl; 
+                cin>>name; 
+                cout<<"Bus Type (ACSleeper/ ACSeater/ NonACSleeper/ NonACSeater):"<<endl; 
+                cin>>type; 
+                cout<<"Number of passengers:"<<endl; 
+                cin>>num; 
+                if(selectedBusObj.bookATicket(from,to,type,num)){ 
+                    cout<<"Dear "<<name<<endl; 
+                    cout<<"Congratulations! Thank you for using online road reservation facility. Your booking details are indicated below."<<endl; 
+                    cout<<"*********************************************"<<endl; 
+                    cout<<"Passenger Name       : "<<name<<endl; 
+                    cout<<"Date of Journey      : "<<date<<endl; 
+                    cout<<"From                 : "<<from<<endl; 
+                    cout<<"To                   : "<<to<<endl; 
+                    cout<<"Number of passengers : "<<num<<endl; 
+                    cout<<"Total Fare           : "<<selectedBusObj.calculateTotalFare(num)<<endl; 
+                     
+                } 
+            break; 
+        case 3: 
+            a=0; 
+            break; 
+    } 
+     
+    } 
+}
