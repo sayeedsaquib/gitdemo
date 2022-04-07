@@ -1,0 +1,269 @@
+china bazar working in eclipse
+#include <iostream>
+
+#include <string>
+
+using namespace std;
+
+class CustomerDetails{
+
+     private :
+
+    string customerId;
+
+    string customerName;
+
+    long int phoneNumber;
+
+    string emailId;
+
+    string toyType;
+
+    double price;
+
+    public:
+
+    void setcustomerid(string id){
+
+        customerId=id;
+
+    }
+
+    string getcustomerid(){
+
+        return customerId;
+
+    }
+
+    void setcustomerName(string name){
+
+        customerName=name;
+
+    }
+
+    string getcustomerName(){
+
+        return customerName;
+
+    }
+
+    void setcustomerNumber(int number){
+
+       phoneNumber=number;
+
+    }
+
+    int getcustomerNumber(){
+
+        return phoneNumber;
+
+    }
+
+    void setemailId(string email){
+
+        emailId=email;
+
+    }
+
+    string getemailId(){
+
+        return emailId;
+
+    }
+
+    void settoyType(string toy){
+
+        toyType=toy;
+
+    }
+
+    string gettoyType(){
+
+        return toyType;
+
+    }
+
+    void setprice(double pri){
+
+        price=pri;
+
+    }
+
+    string getprice(){
+
+        return price;
+
+    }
+
+    CustomerDetails();
+
+    CustomerDetails(customerId, customerName, phoneNumber, emailId, toyType, price){
+
+        this->customerId=customerId;
+
+        this->customerName=customerName;
+
+        this->phoneNumber=phoneNumber;
+
+        this->emailId=emailId;
+
+        this->toyType=toyType;
+
+        this->price=price;
+
+    }
+
+    ~CustomerDetails() 
+
+    {
+
+        cout<<"CustomerDetails Object is destroyed"<<endl;
+
+        
+
+    }
+
+    void validateCustomerName(){
+
+        string p=getcustomerName();
+
+        for(int i=0;i<p.length();i++){
+
+            if(isdigit(p[i]==false)){
+
+                continue;
+
+            }
+
+            else{
+
+                throw("Invalid customer name")
+
+            }
+
+        }return("valid customer name")
+
+    }
+
+    double calculateDiscount(){
+
+        int disPrice
+
+        k=getcustomerNumber();
+
+        if(k=="softToys"){
+
+           disPrice=getprice()-(getprice()*5/100);
+
+           getprice(disPrice);
+
+        }
+
+        else if(k=="fidgetToys"){
+
+            disPrice=getprice()-(getprice()*10/100);
+
+            getprice(disPrice);
+
+        }
+
+        else if(k=="sensoryToys"){
+
+            disPrice=getprice()-(getprice()*15/100);
+
+            getprice(disPrice);
+
+        }
+
+        else if(k=="puzzles"){
+
+            disPrice=getprice()-(getprice()*15/100);
+
+            getprice(disPrice);
+
+        }
+
+    }return getprice();
+
+
+
+};
+
+
+int main()
+
+{       
+
+        string id;
+
+        string name;
+
+        long int no;
+
+        string email;
+
+        string toy;
+
+        int price;
+
+        
+
+        CustomerDetails c;
+
+        cout<<"Enter Customer Id"<<endl;
+
+        cin>>id;
+
+        cout<<"Enter Customer Name"<<endl;
+
+        cin>>name;
+
+        cout<<"Enter Phone Number"<<endl;
+
+        cin>>no;
+
+        cout<<"Enter Email Id"<<endl;
+
+        cin>>email;
+
+        cout<<"Enter type"<<endl;
+
+        cin>>toy;
+
+        cout<<"Enter Price"<<endl;
+
+        cin>>price;
+
+        c.setcustomerid(id);
+
+        c.setcustomerName(name);
+
+        c.setcustomerNumber(no);
+
+        c.setemailId(email);
+
+        c.settoyType(toy);
+
+        c.setprice(price);
+
+        c(c.setcustomerid(id),c.setcustomerName(name), c.setcustomerNumber(no),c.setemailId(email),c.settoyType(toy),c.setprice(price));
+
+        c.calculateDiscount();
+
+        try{
+
+            getcustomerName();
+
+            cout<<c.validateCustomerName()<<endl;
+
+        }catch(const char*msg){
+
+            cerr<msg<<endl;
+
+        }
+
+        cout<<"Amount paid by the Customer "<<c.calculateDiscount<<endl;
+
+        
+
+}
